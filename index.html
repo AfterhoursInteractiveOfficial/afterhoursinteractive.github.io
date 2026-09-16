@@ -1,9 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AfterHours Interactive</title>
 
     <style>
@@ -13,155 +13,366 @@
             padding: 0;
         }
 
-        body {
-            background: #080808;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            background: #050505;
+            color: #eeeeee;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+
         header {
-            padding: 25px 8%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 22px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #222;
+            background: rgba(5, 5, 5, 0.92);
+            border-bottom: 1px solid #202020;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 2px;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #888;
         }
 
         nav a {
             color: #aaa;
             text-decoration: none;
-            margin-left: 25px;
+            margin-left: 30px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
         nav a:hover {
             color: white;
         }
 
+        /* HERO */
+
         .hero {
-            min-height: 75vh;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            padding: 8%;
-            background: radial-gradient(circle at center, #202020, #080808 65%);
+            text-align: center;
+            padding: 100px 20px 60px;
+            position: relative;
+
+            background:
+                radial-gradient(circle at center, #171717 0%, #080808 45%, #030303 100%);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255,255,255,0.025),
+                rgba(255,255,255,0.025) 1px,
+                transparent 1px,
+                transparent 4px
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .small-title {
+            color: #777;
+            font-size: 13px;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: clamp(45px, 8vw, 100px);
-            letter-spacing: 5px;
+            font-size: clamp(55px, 10vw, 130px);
+            letter-spacing: 12px;
+            font-weight: 900;
+            line-height: 0.9;
         }
 
-        .hero p {
+        .hero h1 span {
+            color: #777;
+        }
+
+        .tagline {
+            margin-top: 28px;
             color: #aaa;
-            font-size: 20px;
-            margin-top: 15px;
-            max-width: 600px;
+            font-size: 18px;
+            letter-spacing: 4px;
         }
 
-        .button {
+        .hero-button {
             display: inline-block;
-            margin-top: 30px;
-            padding: 14px 25px;
+            margin-top: 45px;
+            padding: 15px 32px;
+            border: 1px solid #555;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
             background: white;
             color: black;
-            text-decoration: none;
-            font-weight: bold;
-            width: fit-content;
+            border-color: white;
         }
 
-        .button:hover {
-            background: #ccc;
-        }
+        /* SECTION */
 
         section {
-            padding: 80px 8%;
+            padding: 110px 8%;
         }
 
-        section h2 {
-            font-size: 35px;
-            margin-bottom: 35px;
+        .section-title {
+            font-size: 36px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
         }
 
-        .game {
-            border: 1px solid #292929;
-            padding: 30px;
-            background: #111;
-            max-width: 800px;
+        .section-subtitle {
+            color: #777;
+            margin-bottom: 45px;
         }
 
-        .game h3 {
-            font-size: 28px;
-            margin-bottom: 10px;
+        /* GAME CARD */
+
+        .game-card {
+            border: 1px solid #252525;
+            background: #0b0b0b;
+            padding: 40px;
+            max-width: 900px;
+            transition: 0.3s;
         }
 
-        .game p {
-            color: #aaa;
-            line-height: 1.6;
+        .game-card:hover {
+            border-color: #555;
+            transform: translateY(-5px);
         }
+
+        .game-status {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #888;
+            border: 1px solid #333;
+            padding: 7px 12px;
+            margin-bottom: 25px;
+        }
+
+        .game-card h3 {
+            font-size: 30px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .game-card p {
+            color: #999;
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #080808;
+            border-top: 1px solid #151515;
+            border-bottom: 1px solid #151515;
+        }
+
+        .about p {
+            max-width: 750px;
+            color: #999;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        /* FOOTER */
 
         footer {
-            padding: 30px 8%;
-            border-top: 1px solid #222;
-            color: #666;
+            padding: 35px 8%;
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 18px 5%;
+            }
+
+            nav a {
+                margin-left: 12px;
+                font-size: 11px;
+            }
+
+            .hero h1 {
+                letter-spacing: 5px;
+            }
+
+            .tagline {
+                font-size: 14px;
+                letter-spacing: 2px;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .game-card {
+                padding: 25px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">AFTERHOURS INTERACTIVE</div>
+    <!-- NAVIGATION -->
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#games">Games</a>
-        <a href="#about">About</a>
-    </nav>
-</header>
+    <header>
+        <div class="logo">
+            AFTER<span>HOURS</span>
+        </div>
 
-<section class="hero" id="home">
-    <h1>AFTERHOURS.</h1>
-    <p>Games, after dark.</p>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#games">GAMES</a>
+            <a href="#about">ABOUT</a>
+        </nav>
+    </header>
 
-    <a class="button" href="#games">EXPLORE OUR GAMES</a>
-</section>
 
-<section id="games">
-    <h2>OUR GAMES</h2>
+    <!-- HERO -->
 
-    <div class="game">
-        <h3>Animatronic Distribution Centre</h3>
+    <main id="home">
 
-        <p>
-            Something isn't right after hours.
-            Explore the facility, monitor the cameras,
-            manage the power and survive the night.
-        </p>
+        <section class="hero">
 
-        <a class="button" href="#">COMING SOON</a>
-    </div>
-</section>
+            <div class="hero-content">
 
-<section id="about">
-    <h2>ABOUT</h2>
+                <div class="small-title">
+                    AFTERHOURS INTERACTIVE
+                </div>
 
-    <p style="color:#aaa; max-width:700px; line-height:1.7;">
-        AfterHours Interactive is an independent game studio
-        creating atmospheric games, strange places and stories
-        that are best experienced after dark.
-    </p>
-</section>
+                <h1>
+                    AFTER<span>HOURS</span>
+                </h1>
 
-<footer>
-    © 2026 AfterHours Interactive. All rights reserved.
-</footer>
+                <div class="tagline">
+                    GAMES, AFTER DARK.
+                </div>
+
+                <a href="#games" class="hero-button">
+                    EXPLORE GAMES
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- GAMES -->
+
+        <section id="games">
+
+            <h2 class="section-title">
+                OUR GAMES
+            </h2>
+
+            <p class="section-subtitle">
+                Games currently in development.
+            </p>
+
+            <div class="game-card">
+
+                <div class="game-status">
+                    IN DEVELOPMENT
+                </div>
+
+                <h3>
+                    ANIMATRONIC DISTRIBUTION CENTRE
+                </h3>
+
+                <p>
+                    Something is wrong inside the facility.
+                    The machines were never supposed to move on their own.
+                    Work the night shift, monitor the building,
+                    and survive until morning.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section id="about" class="about">
+
+            <h2 class="section-title">
+                AFTERHOURS INTERACTIVE
+            </h2>
+
+            <p>
+                AfterHours Interactive is an independent game studio
+                creating atmospheric games, strange experiences and
+                stories designed to keep you playing long after the
+                lights go out.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            © 2026 AFTERHOURS INTERACTIVE
+        </div>
+
+        <div>
+            GAMES, AFTER DARK.
+        </div>
+
+    </footer>
 
 </body>
 </html>
-```
