@@ -1,11 +1,11 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Games | AfterHours Interactive</title>
+<title>AfterHours Interactive</title>
 
 <style>
 * {
@@ -19,248 +19,307 @@ html {
 }
 
 body {
-    background: #080808;
-    color: #ffffff;
+    background: #070707;
+    color: #fff;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* NAVIGATION */
 
 nav {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    height: 70px;
-    background: rgba(5, 5, 5, 0.95);
-    border-bottom: 1px solid #222;
+    height: 72px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 7%;
+
+    background: rgba(5, 5, 5, 0.92);
+    border-bottom: 1px solid #1d1d1d;
+
+    backdrop-filter: blur(12px);
+
     z-index: 1000;
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 900;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 }
 
 nav ul {
     display: flex;
-    gap: 30px;
+    gap: 35px;
     list-style: none;
 }
 
 nav a {
-    color: #aaa;
+    color: #999;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     letter-spacing: 2px;
-    transition: 0.2s;
+    transition: 0.25s;
 }
 
 nav a:hover {
-    color: white;
+    color: #fff;
 }
 
-/* HERO BANNER */
+/* HERO */
 
-.game-hero {
-    min-height: 620px;
-    margin-top: 70px;
+.hero {
+    min-height: 100vh;
+    padding: 72px 7% 0;
+
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+
     position: relative;
     overflow: hidden;
 
     background:
-        linear-gradient(
-            to top,
-            #080808 5%,
-            rgba(8,8,8,0.75) 45%,
-            rgba(8,8,8,0.15) 100%
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(120, 0, 0, 0.18),
+            transparent 35%
         ),
         linear-gradient(
             90deg,
-            #050505,
-            #202020,
-            #080808
+            #070707 0%,
+            #090909 55%,
+            #050505 100%
         );
 }
 
-.game-hero::after {
+.hero::before {
     content: "";
     position: absolute;
     inset: 0;
+
     background:
         repeating-linear-gradient(
             0deg,
-            rgba(255,255,255,0.025) 0px,
-            rgba(255,255,255,0.025) 1px,
+            rgba(255,255,255,0.018) 0px,
+            rgba(255,255,255,0.018) 1px,
             transparent 1px,
-            transparent 4px
+            transparent 5px
         );
+
     pointer-events: none;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 80px 8%;
     max-width: 850px;
 }
 
-.tag {
-    color: #aaa;
-    font-size: 13px;
-    letter-spacing: 4px;
+.eyebrow {
+    color: #777;
+    font-size: 12px;
     font-weight: bold;
-    margin-bottom: 15px;
+    letter-spacing: 5px;
+    margin-bottom: 22px;
 }
 
-.hero-content h1 {
-    font-size: clamp(45px, 7vw, 90px);
-    line-height: 0.95;
-    letter-spacing: -3px;
-    margin-bottom: 25px;
+.hero h1 {
+    font-size: clamp(58px, 9vw, 125px);
+    line-height: 0.85;
+    letter-spacing: -6px;
+    font-weight: 900;
+    margin-bottom: 30px;
 }
 
-.hero-content p {
-    color: #bbb;
+.hero h1 span {
+    color: #8f0000;
+}
+
+.hero p {
+    max-width: 580px;
+    color: #aaa;
     font-size: 18px;
     line-height: 1.7;
-    max-width: 650px;
+    margin-bottom: 38px;
 }
 
-/* CONTENT */
-
-.container {
-    width: 84%;
-    max-width: 1200px;
-    margin: auto;
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-section {
-    padding: 90px 0;
+.button {
+    display: inline-block;
+    padding: 15px 26px;
+
+    border: 1px solid #444;
+
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    transition: 0.25s;
+}
+
+.button.primary {
+    background: #8f0000;
+    border-color: #8f0000;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    border-color: #777;
+}
+
+.button.primary:hover {
+    background: #b00000;
+    border-color: #b00000;
+}
+
+/* FEATURED GAME */
+
+.featured {
+    padding: 110px 7%;
+    background: #090909;
+    border-top: 1px solid #181818;
+}
+
+.section-label {
+    color: #666;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
 }
 
 .section-title {
-    font-size: 32px;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
+    font-size: clamp(32px, 5vw, 55px);
+    letter-spacing: -2px;
+    margin-bottom: 45px;
 }
 
-.section-subtitle {
-    color: #777;
-    margin-bottom: 40px;
-}
+.game-card {
+    min-height: 520px;
 
-/* SCREENSHOTS */
-
-.screenshots {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 18px;
-}
-
-.screenshot {
-    height: 300px;
-    background: linear-gradient(135deg, #171717, #303030);
-    border: 1px solid #292929;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-size: 13px;
-    letter-spacing: 2px;
     position: relative;
     overflow: hidden;
+
+    display: flex;
+    align-items: flex-end;
+
+    border: 1px solid #252525;
+
+    background:
+        linear-gradient(
+            to top,
+            #050505 5%,
+            rgba(5,5,5,0.75) 50%,
+            rgba(5,5,5,0.1) 100%
+        ),
+        url("office.png") center / cover no-repeat;
 }
 
-.screenshot.large {
-    height: 618px;
-    grid-row: span 2;
-}
-
-.screenshot::before {
+.game-card::after {
     content: "";
     position: absolute;
     inset: 0;
+
     background:
         repeating-linear-gradient(
             0deg,
-            transparent,
-            transparent 3px,
-            rgba(255,255,255,0.025) 4px
+            rgba(255,255,255,0.02) 0px,
+            rgba(255,255,255,0.02) 1px,
+            transparent 1px,
+            transparent 4px
         );
+
+    pointer-events: none;
 }
 
-.screenshot span {
+.game-content {
     position: relative;
     z-index: 2;
+    padding: 55px;
+    max-width: 850px;
 }
 
-/* GAME INFO */
+.game-status {
+    display: inline-block;
 
-.info {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 60px;
-    border-top: 1px solid #222;
+    padding: 8px 13px;
+    margin-bottom: 18px;
+
+    border: 1px solid #555;
+
+    color: #ccc;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
 }
 
-.description h2 {
+.game-content h3 {
+    font-size: clamp(40px, 6vw, 75px);
+    line-height: 0.9;
+    letter-spacing: -3px;
     margin-bottom: 20px;
-    font-size: 26px;
 }
 
-.description p {
+.game-content p {
     color: #aaa;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 28px;
+}
+
+/* ABOUT */
+
+.about {
+    padding: 110px 7%;
+    border-top: 1px solid #181818;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1200px;
+}
+
+.about h2 {
+    font-size: 45px;
+    letter-spacing: -2px;
+}
+
+.about p {
+    color: #999;
     line-height: 1.8;
     font-size: 16px;
-}
-
-.details {
-    border-left: 1px solid #222;
-    padding-left: 35px;
-}
-
-.detail {
-    margin-bottom: 25px;
-}
-
-.detail-label {
-    color: #666;
-    font-size: 11px;
-    letter-spacing: 3px;
-    margin-bottom: 7px;
-}
-
-.detail-value {
-    font-size: 16px;
-}
-
-/* STATUS */
-
-.status {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 10px 18px;
-    border: 1px solid #444;
-    color: #ccc;
-    font-size: 11px;
-    letter-spacing: 3px;
 }
 
 /* FOOTER */
 
 footer {
-    border-top: 1px solid #222;
-    padding: 35px 7%;
+    padding: 40px 7%;
+
+    border-top: 1px solid #1d1d1d;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
     color: #555;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 2px;
 }
 
@@ -273,176 +332,195 @@ footer {
     }
 
     nav ul {
-        gap: 12px;
+        gap: 14px;
     }
 
     nav a {
-        font-size: 10px;
+        font-size: 9px;
     }
 
-    .game-hero {
-        min-height: 520px;
+    .hero {
+        padding-left: 7%;
+        padding-right: 7%;
     }
 
-    .hero-content {
-        padding: 50px 7%;
+    .hero h1 {
+        letter-spacing: -3px;
     }
 
-    .screenshots {
+    .game-content {
+        padding: 35px;
+    }
+
+    .about-grid {
         grid-template-columns: 1fr;
+        gap: 35px;
     }
 
-    .screenshot,
-    .screenshot.large {
-        height: 250px;
-        grid-row: auto;
-    }
-
-    .info {
-        grid-template-columns: 1fr;
-    }
-
-    .details {
-        border-left: none;
-        border-top: 1px solid #222;
-        padding-left: 0;
-        padding-top: 35px;
+    footer {
+        flex-direction: column;
     }
 }
 </style>
+
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">AFTERHOURS</div>
+<!-- NAVIGATION -->
 
-    <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="games.html">GAMES</a></li>
-        <li><a href="index.html#about">ABOUT</a></li>
-    </ul>
+<nav>
+
+```
+<div class="logo">
+    AFTERHOURS
+</div>
+
+<ul>
+    <li>
+        <a href="index.html">HOME</a>
+    </li>
+
+    <li>
+        <a href="games.html">GAMES</a>
+    </li>
+
+    <li>
+        <a href="#about">ABOUT</a>
+    </li>
+</ul>
+```
+
 </nav>
 
+<!-- HERO -->
 
-<!-- GAME BANNER -->
+<section class="hero">
 
-<header class="game-hero">
+```
+<div class="hero-content">
 
-    <div class="hero-content">
+    <div class="eyebrow">
+        AFTERHOURS INTERACTIVE
+    </div>
 
-        <div class="tag">AFTERHOURS INTERACTIVE PRESENTS</div>
+    <h1>
+        GAMES.<br>
+        <span>AFTER DARK.</span>
+    </h1>
 
-        <h1>ANIMATRONIC<br>DISTRIBUTION<br>CENTRE</h1>
+    <p>
+        Independent games built around atmosphere, mystery
+        and the things that shouldn't be waiting for you
+        after the lights go out.
+    </p>
 
-        <p>
-            Something is wrong inside the distribution centre.
-            The building should be empty. It isn't.
-        </p>
+    <div class="hero-buttons">
 
-        <div class="status">
+        <a class="button primary" href="games.html">
+            VIEW THE GAME
+        </a>
+
+        <a class="button" href="#about">
+            ABOUT US
+        </a>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- FEATURED GAME -->
+
+<section class="featured">
+
+```
+<div class="section-label">
+    FEATURED PROJECT
+</div>
+
+<h2 class="section-title">
+    THE FINAL SHIFT
+</h2>
+
+<div class="game-card">
+
+    <div class="game-content">
+
+        <div class="game-status">
             IN DEVELOPMENT
         </div>
 
-    </div>
+        <h3>
+            AFTERHOURS:<br>
+            THE FINAL SHIFT
+        </h3>
 
-</header>
-
-
-<!-- SCREENSHOTS -->
-
-<section>
-
-    <div class="container">
-
-        <h2 class="section-title">SCREENSHOTS</h2>
-
-        <p class="section-subtitle">
-            A first look inside the facility.
+        <p>
+            The distribution centre should be empty.
+            You're working the night shift anyway.
+            Monitor the facility, manage the security
+            systems and survive until morning.
         </p>
 
-        <div class="screenshots">
-
-            <div class="screenshot large">
-                <span>SCREENSHOT 01 — COMING SOON</span>
-            </div>
-
-            <div class="screenshot">
-                <span>SCREENSHOT 02 — COMING SOON</span>
-            </div>
-
-            <div class="screenshot">
-                <span>SCREENSHOT 03 — COMING SOON</span>
-            </div>
-
-        </div>
+        <a class="button primary" href="games.html">
+            EXPLORE GAME
+        </a>
 
     </div>
 
-</section>
-
-
-<!-- GAME INFORMATION -->
-
-<section>
-
-    <div class="container info">
-
-        <div class="description">
-
-            <h2>THE NIGHT SHIFT</h2>
-
-            <p>
-                Animatronic Distribution Centre is a first-person
-                horror game set inside a mysterious animatronic
-                distribution facility.
-            </p>
-
-            <br>
-
-            <p>
-                What starts as an ordinary shift quickly turns into
-                something much worse. Monitor the facility, manage
-                the security systems and try to survive whatever
-                is moving through the building.
-            </p>
-
-        </div>
-
-
-        <div class="details">
-
-            <div class="detail">
-                <div class="detail-label">GENRE</div>
-                <div class="detail-value">Horror</div>
-            </div>
-
-            <div class="detail">
-                <div class="detail-label">PLATFORM</div>
-                <div class="detail-value">PC</div>
-            </div>
-
-            <div class="detail">
-                <div class="detail-label">DEVELOPER</div>
-                <div class="detail-value">AfterHours Interactive</div>
-            </div>
-
-            <div class="detail">
-                <div class="detail-label">STATUS</div>
-                <div class="detail-value">In Development</div>
-            </div>
-
-        </div>
-
-    </div>
+</div>
+```
 
 </section>
 
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+```
+<div class="section-label">
+    THE STUDIO
+</div>
+
+<div class="about-grid">
+
+    <h2>
+        BUILT AFTER DARK.
+    </h2>
+
+    <p>
+        AfterHours Interactive is an independent game studio
+        focused on creating atmospheric experiences with
+        memorable worlds, unsettling stories and gameplay
+        that keeps you looking over your shoulder.
+        <br><br>
+        Our first project is
+        <strong>AfterHours: The Final Shift.</strong>
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
+
+```
+<div>
     © 2026 AFTERHOURS INTERACTIVE
+</div>
+
+<div>
+    GAMES, AFTER DARK.
+</div>
+```
+
 </footer>
 
 </body>
 </html>
-```
