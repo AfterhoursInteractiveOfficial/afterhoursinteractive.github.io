@@ -1,0 +1,167 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfterHours Interactive</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #080808;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8%;
+            background: radial-gradient(circle at center, #202020, #080808 65%);
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 100px);
+            letter-spacing: 5px;
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 20px;
+            margin-top: 15px;
+            max-width: 600px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 25px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            width: fit-content;
+        }
+
+        .button:hover {
+            background: #ccc;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        section h2 {
+            font-size: 35px;
+            margin-bottom: 35px;
+        }
+
+        .game {
+            border: 1px solid #292929;
+            padding: 30px;
+            background: #111;
+            max-width: 800px;
+        }
+
+        .game h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .game p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        footer {
+            padding: 30px 8%;
+            border-top: 1px solid #222;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">AFTERHOURS INTERACTIVE</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>AFTERHOURS.</h1>
+    <p>Games, after dark.</p>
+
+    <a class="button" href="#games">EXPLORE OUR GAMES</a>
+</section>
+
+<section id="games">
+    <h2>OUR GAMES</h2>
+
+    <div class="game">
+        <h3>Animatronic Distribution Centre</h3>
+
+        <p>
+            Something isn't right after hours.
+            Explore the facility, monitor the cameras,
+            manage the power and survive the night.
+        </p>
+
+        <a class="button" href="#">COMING SOON</a>
+    </div>
+</section>
+
+<section id="about">
+    <h2>ABOUT</h2>
+
+    <p style="color:#aaa; max-width:700px; line-height:1.7;">
+        AfterHours Interactive is an independent game studio
+        creating atmospheric games, strange places and stories
+        that are best experienced after dark.
+    </p>
+</section>
+
+<footer>
+    © 2026 AfterHours Interactive. All rights reserved.
+</footer>
+
+</body>
+</html>
+```
