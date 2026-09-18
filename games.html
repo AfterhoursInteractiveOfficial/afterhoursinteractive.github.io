@@ -13,13 +13,17 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #070707;
     color: #eee;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* NAV */
+/* NAVIGATION */
 
 nav {
     height: 70px;
@@ -29,6 +33,9 @@ nav {
     padding: 0 7%;
     border-bottom: 1px solid #222;
     background: #090909;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
@@ -44,6 +51,7 @@ nav a {
     color: #999;
     text-decoration: none;
     font-size: 14px;
+    transition: 0.2s;
 }
 
 nav a:hover {
@@ -58,14 +66,31 @@ nav a:hover {
     display: flex;
     align-items: flex-end;
     position: relative;
+    overflow: hidden;
+
     background:
         linear-gradient(to top, #070707 5%, transparent 65%),
         radial-gradient(circle at 70% 40%, #303030, #101010 40%, #070707 75%);
+    
     border-bottom: 1px solid #222;
 }
 
+.game-hero::after {
+    content: "FACILITY 07";
+    position: absolute;
+    right: -80px;
+    top: 150px;
+    font-size: 100px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.025);
+    transform: rotate(-20deg);
+    pointer-events: none;
+}
+
 .game-title {
-    max-width: 900px;
+    max-width: 950px;
+    position: relative;
+    z-index: 2;
 }
 
 .label {
@@ -116,10 +141,12 @@ nav a:hover {
     text-decoration: none;
     font-weight: bold;
     letter-spacing: 1px;
+    transition: 0.2s;
 }
 
 .download-button:hover {
     background: #bbb;
+    transform: translateY(-2px);
 }
 
 /* MAIN CONTENT */
@@ -167,6 +194,11 @@ main {
     background: #0d0d0d;
     padding: 35px;
     min-height: 180px;
+    transition: 0.2s;
+}
+
+.feature:hover {
+    background: #131313;
 }
 
 .feature-number {
@@ -206,7 +238,7 @@ main {
     letter-spacing: 2px;
 }
 
-/* INFO */
+/* INFORMATION */
 
 .info-grid {
     display: grid;
@@ -237,7 +269,7 @@ main {
     list-style: none;
 }
 
-/* WARNING */
+/* ALPHA WARNING */
 
 .warning {
     border: 1px solid #333;
@@ -268,6 +300,10 @@ footer {
 footer a {
     color: #777;
     text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
 }
 
 /* MOBILE */
@@ -305,6 +341,8 @@ footer a {
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
 
     <div class="logo">
@@ -317,6 +355,8 @@ footer a {
 
 </nav>
 
+
+<!-- GAME HERO -->
 
 <section class="game-hero">
 
@@ -342,6 +382,8 @@ footer a {
 </section>
 
 
+<!-- DOWNLOAD -->
+
 <div class="download-bar">
 
     <div class="version">
@@ -349,9 +391,12 @@ footer a {
         <strong>v0.1.0 ALPHA</strong>
     </div>
 
-    <!-- Replace YOUR_DOWNLOAD_LINK with your actual ZIP link -->
-
-    <a class="download-button" href="YOUR_DOWNLOAD_LINK">
+    <a
+        class="download-button"
+        href="https://afterhoursofficial.itch.io/atlas-distrobution-download"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
         DOWNLOAD v0.1.0 ALPHA
     </a>
 
@@ -360,6 +405,8 @@ footer a {
 
 <main>
 
+
+<!-- GAME DESCRIPTION -->
 
 <section class="section">
 
@@ -388,6 +435,8 @@ footer a {
 </section>
 
 
+<!-- FEATURES -->
+
 <section class="section">
 
     <div class="section-title">
@@ -402,9 +451,13 @@ footer a {
 
         <div class="feature">
 
-            <div class="feature-number">01</div>
+            <div class="feature-number">
+                01
+            </div>
 
-            <h3>CCTV SYSTEM</h3>
+            <h3>
+                CCTV SYSTEM
+            </h3>
 
             <p>
                 Monitor different areas of Facility 07
@@ -416,9 +469,13 @@ footer a {
 
         <div class="feature">
 
-            <div class="feature-number">02</div>
+            <div class="feature-number">
+                02
+            </div>
 
-            <h3>POWER MANAGEMENT</h3>
+            <h3>
+                POWER MANAGEMENT
+            </h3>
 
             <p>
                 Doors, lights and security systems consume
@@ -430,9 +487,13 @@ footer a {
 
         <div class="feature">
 
-            <div class="feature-number">03</div>
+            <div class="feature-number">
+                03
+            </div>
 
-            <h3>ANIMATRONICS</h3>
+            <h3>
+                ANIMATRONICS
+            </h3>
 
             <p>
                 Something is moving through the facility.
@@ -444,9 +505,13 @@ footer a {
 
         <div class="feature">
 
-            <div class="feature-number">04</div>
+            <div class="feature-number">
+                04
+            </div>
 
-            <h3>SURVIVE UNTIL 6 AM</h3>
+            <h3>
+                SURVIVE UNTIL 6 AM
+            </h3>
 
             <p>
                 The shift begins at midnight.
@@ -460,6 +525,8 @@ footer a {
 </section>
 
 
+<!-- SCREENSHOTS -->
+
 <section class="section">
 
     <div class="section-title">
@@ -471,8 +538,6 @@ footer a {
     </h2>
 
     <div class="screenshots">
-
-        <!-- Replace these with your screenshots -->
 
         <div class="screenshot">
             SCREENSHOT 01
@@ -491,6 +556,8 @@ footer a {
 </section>
 
 
+<!-- INFORMATION -->
+
 <section class="section">
 
     <div class="section-title">
@@ -501,7 +568,9 @@ footer a {
 
         <div class="info-box">
 
-            <h3>Controls</h3>
+            <h3>
+                Controls
+            </h3>
 
             <ul>
                 <li>Mouse — Look around</li>
@@ -515,7 +584,9 @@ footer a {
 
         <div class="info-box">
 
-            <h3>Release</h3>
+            <h3>
+                Release
+            </h3>
 
             <ul>
                 <li>Version — v0.1.0</li>
@@ -530,6 +601,8 @@ footer a {
 
 </section>
 
+
+<!-- WARNING -->
 
 <section class="section">
 
@@ -553,6 +626,8 @@ footer a {
 </main>
 
 
+<!-- FOOTER -->
+
 <footer>
 
     <div>
@@ -560,7 +635,9 @@ footer a {
     </div>
 
     <div>
-        <a href="index.html">AfterHours Interactive</a>
+        <a href="index.html">
+            AfterHours Interactive
+        </a>
     </div>
 
 </footer>
